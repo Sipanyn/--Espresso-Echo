@@ -5,7 +5,7 @@ function HomePage() {
         <div className="flex flex-col gap-2">
           <div className="flex flex-row items-center gap-2 text-burntOrange font-bold">
             <svg className="size-8 ">
-              <use href="sprite.svg#app_icon" />
+              <use href="/sprite.svg#app_icon" />
             </svg>
             <h2>Espresso Echo</h2>
           </div>
@@ -16,7 +16,7 @@ function HomePage() {
 
         <div className="flex flex-row items-center gap-2 text-gray-400 cursor-pointer hover:text-burntOrange">
           <svg className="size-8 ">
-            <use href="sprite.svg#login_icon" />
+            <use href="/sprite.svg#login_icon" />
           </svg>
           <h2>Login</h2>
         </div>
