@@ -16,7 +16,7 @@ function Footer() {
         </NavLink>
         <NavLink
           to="/cart"
-          className={`flex flex-col items-center ({ isActive }) => (isActive ? "active" : "")`}
+          className={`flex flex-col items-center text-sm sm:text-[16px] ({ isActive }) => (isActive ? "active" : "")`}
         >
           <svg className="size-6 sm:size-8 ">
             <use href="sprite.svg#cart_icon" />
@@ -25,7 +25,7 @@ function Footer() {
         </NavLink>
         <NavLink
           to="/favorite"
-          className={`flex flex-col items-center ({ isActive }) => (isActive ? "active" : "")`}
+          className={`flex flex-col items-center text-sm sm:text-[16px] ({ isActive }) => (isActive ? "active" : "")`}
         >
           <svg className="size-6 sm:size-8">
             <use href="sprite.svg#favorite_icon" />
@@ -34,7 +34,7 @@ function Footer() {
         </NavLink>
         <NavLink
           to="/profile"
-          className={`flex flex-col items-center ({ isActive }) => (isActive ? "active" : "")`}
+          className={`flex flex-col items-center text-sm sm:text-[16px] ({ isActive }) => (isActive ? "active" : "")`}
         >
           <svg className="size-6 sm:size-8">
             <use href="sprite.svg#profile_icon" />
