@@ -6,6 +6,9 @@
   font-display: swap;
   src: url("/public/fonts/DARKLINOS.ttf") format("ttf");
 }
+@theme {
+  --color-burntOrange: #9c4400;
+}
 /* NavLink */
 a.active {
   color: #9c4400;

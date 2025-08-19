@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router";
 
 function Footer() {
   return (
-    <div className="flex flex-col justify-between h-dvh">
+    <div className="flex flex-col justify-between h-dvh *:select-none">
       <Outlet />
       <div className="bg-white w-full *:text-gray-300 flex flex-row justify-between *:cursor-pointer border-t-1 border-gray-300 mt-2 pt-[19px] pb-[24px] pl-[35px] pr-[35px]">
         <NavLink
