@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className="flex flex-col justify-between h-dvh *:select-none ">
       <Outlet />
-      <div className="bg-white w-full *:text-gray-300 flex flex-row justify-between *:cursor-pointer border-t-1 border-gray-300 mt-2 pb-2 pt-2 pl-[35px] pr-[35px] sm:pt-[19px] sm:pb-[24px]">
+      <div className="bg-white w-full *:text-gray-300 flex flex-row justify-between *:cursor-pointer border-t-1 border-gray-300 mt-2 pb-2 pt-2 pl-[35px] pr-[35px] sm:pt-[8px] sm:pb-[8px]">
         <NavLink
           to="/"
           className={`flex flex-col items-center text-sm sm:text-[16px]  ({ isActive }) => (isActive ? "active" : "")`}
