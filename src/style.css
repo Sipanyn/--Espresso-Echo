@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@font-face {
+  font-family: DARKLINOS;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/public/fonts/DARKLINOS.ttf") format("ttf");
+}
+/* NavLink */
+a.active {
+  color: #9c4400;
+}
