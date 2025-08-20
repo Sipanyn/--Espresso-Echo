@@ -13,3 +13,35 @@
 a.active {
   color: #9c4400;
 }
+
+/* css styles */
+.input_username:valid:not(:placeholder-shown),
+.input_email:valid:not(:placeholder-shown),
+.input_pass:valid:not(:placeholder-shown) {
+  border: 2px solid rgb(17, 166, 17);
+}
+
+.input_username:valid:not(:placeholder-shown) + p,
+.input_email:valid:not(:placeholder-shown) + p,
+.input_pass:valid:not(:placeholder-shown) + p {
+  opacity: 0;
+  visibility: hidden;
+}
+.input_username:invalid:not(:placeholder-shown),
+.input_email:invalid:not(:placeholder-shown),
+.input_pass:invalid:not(:placeholder-shown) {
+  border: 2px solid red;
+  opacity: 1;
+  visibility: visible;
+}
+.input_username:invalid:not(:placeholder-shown) + p,
+.input_email:invalid:not(:placeholder-shown) + p,
+.input_pass:invalid:not(:placeholder-shown) + p {
+  opacity: 1;
+  visibility: visible;
+}
+.input_username:focus:invalid,
+.input_email:focus:invalid,
+.input_pass:focus:invalid {
+  border: 2px solid #9c4400;
+}
