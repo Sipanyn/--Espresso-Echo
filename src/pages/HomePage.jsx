@@ -28,7 +28,7 @@ function HomePage() {
             </div>
 
             {userInfo.length > 0 ? (
-              <p className="text-gray-400 sm:w-fit mt-2 w-[105px] whitespace-nowrap overflow-hidden text-ellipsis">
+              <p className="text-gray-400 text-end sm:w-fit mt-2 w-[105px] whitespace-nowrap overflow-hidden text-ellipsis">
                 Hi {userInfo[0].username}
               </p>
             ) : (
