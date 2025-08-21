@@ -1,6 +1,7 @@
 import { useState } from "react";
-
-function LoginModal() {
+import { useSelector, useDispatch } from "react-redux";
+import { saveLogin } from "../features/loginSlice";
+function LoginModal({ setLoginModel }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [match, setMatch] = useState(null);
@@ -9,16 +10,22 @@ function LoginModal() {
     setPassword(value);
     setMatch(value === confirmPassword);
   };
-
   const handleConfirmChange = (e) => {
     const value = e.target.value;
     setConfirmPassword(value);
     setMatch(password === value);
   };
-
+  const dispatch = useDispatch();
   return (
-    <div className="h-full w-full fixed top-0 z-10 bg-stone-100 flex flex-col  justify-start sm:justify-center items-center">
-      <form className="flex flex-col items-center gap-2 pr-2 pl-2 pt-3.5 pb-3.5 w-[90%] sm:w-[410px]  rounded-md  bg-white text-inherit mt-10 sm:mt-0">
+    <div className=" h-full w-full fixed top-0 z-10 bg-stone-100 flex flex-col  justify-start sm:justify-center items-center">
+      <form
+        onSubmit={(event) => {
+          dispatch(saveLogin(event.target));
+
+          event.preventDefault();
+        }}
+        className="flex flex-col items-center gap-2 pr-2 pl-2 pt-3.5 pb-3.5 w-[90%] sm:w-[410px]  rounded-md  bg-white text-inherit mt-10 sm:mt-0"
+      >
         <div className="flex flex-row-reverse gap-0.5 justify-center items-center">
           <h2 className="font-bold">Login</h2>
           <svg className="size-8 ">
@@ -81,6 +88,7 @@ function LoginModal() {
         </div>
 
         <button
+          type="submit"
           className={`bg-emerald-500 text-white p-2.5 rounded-md cursor-pointer w-full ${
             match === false &&
             "opacity-50 cursor-not-allowed pointer-events-none"
@@ -89,6 +97,15 @@ function LoginModal() {
           Confirm
         </button>
       </form>
+      <div
+        className="flex flex-row gap-1 items-center justify-center cursor-pointer absolute right-2.5 top-2.5 mb-5 text-gray-400  hover:text-burntOrange"
+        onClick={() => setLoginModel(false)}
+      >
+        <svg className="size-6">
+          <use href="/sprite.svg#close_icon" />
+        </svg>
+        <p>Close</p>
+      </div>
     </div>
   );
 }
