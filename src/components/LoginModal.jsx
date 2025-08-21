@@ -16,12 +16,13 @@ function LoginModal({ setLoginModel }) {
     setMatch(password === value);
   };
   const dispatch = useDispatch();
+
   return (
     <div className=" h-full w-full fixed top-0 z-10 bg-stone-100 flex flex-col  justify-start sm:justify-center items-center">
       <form
         onSubmit={(event) => {
           dispatch(saveLogin(event.target));
-
+          setLoginModel(false);
           event.preventDefault();
         }}
         className="flex flex-col items-center gap-2 pr-2 pl-2 pt-3.5 pb-3.5 w-[90%] sm:w-[410px]  rounded-md  bg-white text-inherit mt-10 sm:mt-0"

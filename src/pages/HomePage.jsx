@@ -11,12 +11,10 @@ function HomePage() {
         <LoginModal setLoginModel={setLoginModel} />
       ) : (
         <div className="flex flex-col p-2.5">
-          <div className="flex flex-row justify-between items-start">
+          {/* header */}
+          <div className="flex flex-row justify-between items-start ">
             <div className="flex flex-col gap-2">
-              <div
-                className="flex flex-row items-center gap-2 text-burntOrange font-bold"
-                onClick={() => setLoginModel(true)}
-              >
+              <div className="flex flex-row items-center gap-2 text-burntOrange font-bold">
                 <svg className="size-8">
                   <use href="/sprite.svg#app_icon" />
                 </svg>
