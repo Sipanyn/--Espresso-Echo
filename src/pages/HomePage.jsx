@@ -10,7 +10,7 @@ function HomePage() {
       {loginModel ? (
         <LoginModal setLoginModel={setLoginModel} />
       ) : (
-        <div className="flex flex-col p-2.5">
+        <div className="flex flex-col p-2.5 w-full">
           {/* header */}
           <div className="flex flex-row justify-between items-start ">
             <div className="flex flex-col gap-2">
@@ -20,7 +20,7 @@ function HomePage() {
                 </svg>
                 <h2>Espresso Echo</h2>
               </div>
-              <p className="text-gray-300 font-extralight">
+              <p className="text-gray-300 font-extralight w-[261px] whitespace-nowrap overflow-hidden text-ellipsis">
                 Kindly select your preferred coffee type
               </p>
             </div>
@@ -40,6 +40,13 @@ function HomePage() {
                 <h2>Login</h2>
               </div>
             )}
+          </div>
+          {/* search bar */}
+          <div className="bg-gray-50 rounded-md w-[90%] sm:w-[410px] flex flex-row gap-1 placeholder:text-gray-400 mt-3 m-auto pt-2 pb-2 pl-1.5 pr-1.5">
+            <svg className="size-6 text-gray-400">
+              <use href="/sprite.svg#search_icon" />
+            </svg>
+            <input type="text" placeholder="Search by coffee name" />
           </div>
         </div>
       )}
