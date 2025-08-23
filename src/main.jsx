@@ -11,23 +11,30 @@ import CartPage from "./pages/CartPage.jsx";
 import FavoritePage from "./pages/FavoritePage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import { PersistGate } from "redux-persist/integration/react";
-
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
+const queryClient = new QueryClient();
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<Footer />}>
-              <Route index element={<HomePage />} />
-              <Route path="cart" element={<CartPage />} />
-              <Route path="profile" element={<ProfilePage />} />
-              <Route path="favorite" element={<FavoritePage />} />
-            </Route>
-          </Routes>
-          <App />
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <BrowserRouter>
+            <Routes>
+              <Route element={<Footer />}>
+                <Route index element={<HomePage />} />
+                <Route path="cart" element={<CartPage />} />
+                <Route path="profile" element={<ProfilePage />} />
+                <Route path="favorite" element={<FavoritePage />} />
+              </Route>
+            </Routes>
+            <App />
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
+    </QueryClientProvider>
   </StrictMode>
 );

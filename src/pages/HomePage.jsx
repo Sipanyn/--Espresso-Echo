@@ -1,10 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginModal from "../components/LoginModal"; // assuming you have this component
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import useProduct from "../hooks/useProduct";
+import HomeProduct from "../components/HomeProduct";
+import useScrollTop from "../hooks/useScrollTop";
+import { getAllProducts } from "../features/ProductsSlice";
+import { EosIconsBubbleLoading } from "../components/Loader";
 
 function HomePage() {
   const [loginModel, setLoginModel] = useState(false);
   const userInfo = useSelector((state) => state.login.userInfo);
+  const { scrollTop } = useScrollTop();
+  const { data, isLoading } = useProduct();
+  const allProducts = useSelector((state) => state.products.allProducts);
+  const dispatch = useDispatch(data);
+
+  useEffect(() => {
+    if (isLoading) {
+      console.log("is loading");
+    } else {
+      dispatch(getAllProducts(data));
+      // console.log(data);
+    }
+  }, [data]);
   return (
     <>
       {loginModel ? (
@@ -12,7 +30,7 @@ function HomePage() {
       ) : (
         <div className="flex flex-col p-2.5 w-full">
           {/* header */}
-          <div className="flex flex-row justify-between items-start ">
+          <div className="flex flex-row justify-between items-start sticky top-0  z-9 bg-white">
             <div className="flex flex-col gap-2">
               <div className="flex flex-row items-center gap-2 text-burntOrange font-bold">
                 <svg className="size-8">
@@ -20,8 +38,13 @@ function HomePage() {
                 </svg>
                 <h2>Espresso Echo</h2>
               </div>
-              <p className="text-gray-300 font-extralight w-[261px] whitespace-nowrap overflow-hidden text-ellipsis">
-                Kindly select your preferred coffee type
+
+              <p
+                className={`text-gray-400 font-extralight w-[261px] whitespace-nowrap overflow-hidden text-ellipsis ${
+                  scrollTop > 0 && "hidden"
+                }`}
+              >
+                Select your preferred coffee type
               </p>
             </div>
 
@@ -42,11 +65,20 @@ function HomePage() {
             )}
           </div>
           {/* search bar */}
-          <div className="bg-gray-50 rounded-md w-[90%] sm:w-[410px] flex flex-row gap-1 placeholder:text-gray-400 mt-3 m-auto pt-2 pb-2 pl-1.5 pr-1.5">
+          <div className="bg-gray-50 shadow-sm rounded-md w-[90%] sm:w-[410px] flex flex-row gap-1 placeholder:text-gray-400 mt-3 m-auto pt-3 pb-3 pl-1.5 pr-1.5 sticky top-12 z-9">
             <svg className="size-6 text-gray-400">
               <use href="/sprite.svg#search_icon" />
             </svg>
             <input type="text" placeholder="Search by coffee name" />
+          </div>
+          {/* products container */}
+          {/* {isLoading ? console.log("is loading") : console.log(data)} */}
+          <div className="flex flex-row justify-center flex-wrap gap-2.5 mb-25 mt-5 p-2.5">
+            {isLoading && <EosIconsBubbleLoading />}
+            {!isLoading &&
+              data.map((item) => {
+                return <HomeProduct item={item} key={item.id} />;
+              })}
           </div>
         </div>
       )}
