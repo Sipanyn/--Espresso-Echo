@@ -35,156 +35,59 @@ function CartPage() {
                 <p className="font-bold">1</p>
                 <p>item(s)</p>
               </div>
-            ) : (
-              <div
-                className="flex flex-row items-center gap-2 text-gray-400 cursor-pointer hover:text-burntOrange"
-                onClick={() => setLoginModel(true)}
-              >
-                <svg className="size-6 sm:size-8">
-                  <use href="/sprite.svg#login_icon" />
-                </svg>
-                <h2>Login</h2>
-              </div>
-            )}
+            ) : null}
           </div>
           <>
             {userInfo.length > 0 ? (
               <div className="flex flex-row justify-center flex-wrap gap-2.5 mb-25 mt-16 p-2.5">
-                {/* product */}
-                <div className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20">
-                  {/* image */}
-                  <img src="/Hot%20Chocolate.png" />
-                  <div className="flex flex-col justify-between w-full pt-1 pb-4">
-                    {/* name + rate */}
-                    <div className="flex flex-col gap-1.5">
-                      <p className="font-medium">Hot Chocolate</p>
-                      <span className="flex flex-row gap-0.5">
-                        <span>⭐</span>
-                        <span className="text-gray-400 font-light">4.5</span>
-                      </span>
-                    </div>
-                    {/* count + price */}
-                    <div className="flex flex-row justify-between items-center gap-8 w-full">
-                      <p className="font-medium">$12</p>
-                      <Counter />
-                    </div>
-                  </div>
-                </div>
-                {/* product */}
-                <div className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20">
-                  {/* image */}
-                  <img src="/Hot%20Chocolate.png" />
-                  <div className="flex flex-col justify-between w-full pt-1 pb-4">
-                    {/* name + rate */}
-                    <div className="flex flex-col gap-1.5">
-                      <p className="font-medium">Hot Chocolate</p>
-                      <span className="flex flex-row gap-0.5">
-                        <span>⭐</span>
-                        <span className="text-gray-400 font-light">4.5</span>
-                      </span>
-                    </div>
-                    {/* count + price */}
-                    <div className="flex flex-row justify-between items-center gap-8 w-full">
-                      <p className="font-medium">$12</p>
-                      <Counter />
+                {Array.from({ length: 8 }, (_, i) => i + 1).map((item) => (
+                  <div
+                    key={item}
+                    className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20"
+                  >
+                    {/* image */}
+                    <img src="/Hot%20Chocolate.png" alt="Hot Chocolate" />
+                    <div className="flex flex-col justify-between w-full pt-1 pb-4">
+                      {/* name + rate */}
+                      <div className="flex flex-col gap-1.5">
+                        <p className="font-medium">Hot Chocolate</p>
+                        <span className="flex flex-row gap-0.5">
+                          <span>⭐</span>
+                          <span className="text-gray-400 font-light">4.5</span>
+                        </span>
+                      </div>
+                      {/* count + price */}
+                      <div className="flex flex-row justify-between items-center gap-8 w-full">
+                        <p className="font-medium">$12</p>
+                        <Counter />
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
                 {/* product */}
-                <div className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20">
-                  {/* image */}
-                  <img src="/Hot%20Chocolate.png" />
-                  <div className="flex flex-col justify-between w-full pt-1 pb-4">
-                    {/* name + rate */}
-                    <div className="flex flex-col gap-1.5">
-                      <p className="font-medium">Hot Chocolate</p>
-                      <span className="flex flex-row gap-0.5">
-                        <span>⭐</span>
-                        <span className="text-gray-400 font-light">4.5</span>
-                      </span>
-                    </div>
-                    {/* count + price */}
-                    <div className="flex flex-row justify-between items-center gap-8 w-full">
-                      <p className="font-medium">$12</p>
-                      <Counter />
-                    </div>
-                  </div>
-                </div>
-                {/* product */}
-                <div className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20">
-                  {/* image */}
-                  <img src="/Hot%20Chocolate.png" />
-                  <div className="flex flex-col justify-between w-full pt-1 pb-4">
-                    {/* name + rate */}
-                    <div className="flex flex-col gap-1.5">
-                      <p className="font-medium">Hot Chocolate</p>
-                      <span className="flex flex-row gap-0.5">
-                        <span>⭐</span>
-                        <span className="text-gray-400 font-light">4.5</span>
-                      </span>
-                    </div>
-                    {/* count + price */}
-                    <div className="flex flex-row justify-between items-center gap-8 w-full">
-                      <p className="font-medium">$12</p>
-                      <Counter />
-                    </div>
-                  </div>
-                </div>
-                {/* product */}
-                <div className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20">
-                  {/* image */}
-                  <img src="/Hot%20Chocolate.png" />
-                  <div className="flex flex-col justify-between w-full pt-1 pb-4">
-                    {/* name + rate */}
-                    <div className="flex flex-col gap-1.5">
-                      <p className="font-medium">Hot Chocolate</p>
-                      <span className="flex flex-row gap-0.5">
-                        <span>⭐</span>
-                        <span className="text-gray-400 font-light">4.5</span>
-                      </span>
-                    </div>
-                    {/* count + price */}
-                    <div className="flex flex-row justify-between items-center gap-8 w-full">
-                      <p className="font-medium">$12</p>
-                      <Counter />
-                    </div>
-                  </div>
-                </div>
-                {/* product */}
-                <div className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20">
-                  {/* image */}
-                  <img src="/Hot%20Chocolate.png" />
-                  <div className="flex flex-col justify-between w-full pt-1 pb-4">
-                    {/* name + rate */}
-                    <div className="flex flex-col gap-1.5">
-                      <p className="font-medium">Hot Chocolate</p>
-                      <span className="flex flex-row gap-0.5">
-                        <span>⭐</span>
-                        <span className="text-gray-400 font-light">4.5</span>
-                      </span>
-                    </div>
-                    {/* count + price */}
-                    <div className="flex flex-row justify-between items-center gap-8 w-full">
-                      <p className="font-medium">$12</p>
-                      <Counter />
-                    </div>
-                  </div>
-                </div>
               </div>
             ) : (
               <div className="flex justify-center items-center h-dvh">
-                <p className="bg-gray-300 rounded-md pt-2 pb-2 pl-3.5 pr-3.5 text-white">
-                  Login to see Cart !
-                </p>
+                <div
+                  onClick={() => setLoginModel(true)}
+                  className="bg-gray-300 rounded-md pt-2 pb-2 pl-3.5 pr-3.5 text-white flex flex-row items-center gap-1.5 cursor-pointer"
+                >
+                  Login to see Cart
+                  <svg className="size-6 sm:size-7">
+                    <use href="/sprite.svg#login_icon" />
+                  </svg>
+                </div>
               </div>
             )}
           </>
 
           {/* total price */}
-          <div className="flex flex-row justify-between items-center font-bold fixed z-9 bottom-[60px] sm:bottom-[68px] bg-white w-full pt-2 pb-2 pl-4 pr-4">
-            <p>Total</p>
-            <p>$12</p>
-          </div>
+          {userInfo.length > 0 && (
+            <div className="flex flex-row justify-between items-center font-bold fixed z-9 bottom-[60px] sm:bottom-[68px] bg-white w-full pt-2 pb-2 pl-4 pr-4">
+              <p>Total</p>
+              <p>$12</p>
+            </div>
+          )}
         </div>
       )}
     </>

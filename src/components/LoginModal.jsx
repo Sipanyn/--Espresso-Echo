@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { saveLogin } from "../features/loginSlice";
 function LoginModal({ setLoginModel }) {
   const [password, setPassword] = useState("");
@@ -18,7 +18,7 @@ function LoginModal({ setLoginModel }) {
   const dispatch = useDispatch();
 
   return (
-    <div className=" h-full w-full fixed top-0 z-10 bg-stone-100 flex flex-col  justify-start sm:justify-center items-center">
+    <div className=" h-full w-full fixed top-0 z-10 bg-stone-100 flex flex-col  justify-start sm:justify-center items-center overflow-scroll">
       <form
         onSubmit={(event) => {
           dispatch(saveLogin(event.target));
