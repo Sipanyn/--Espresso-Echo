@@ -5,7 +5,7 @@ const initialState = {
   totalPrice: 0,
 };
 
-export const productsSlice = createSlice({
+export const productSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
@@ -64,6 +64,6 @@ export const {
   calTotal,
   increment,
   decrement,
-} = productsSlice.actions;
+} = productSlice.actions;
 
-export default productsSlice.reducer;
+export default productSlice.reducer;
