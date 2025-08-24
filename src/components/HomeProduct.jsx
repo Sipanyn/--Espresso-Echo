@@ -6,7 +6,7 @@ function HomeProduct({ item }) {
     <div className="relative flex flex-col items-center rounded-md shadow-md p-3 pb-0 gap-2.5 w-[162px]  bg-stone-50/20 ">
       {/* image */}
       {/* <img className="h-[138px] w-[152px]" src={item.src} alt="Hot Chocolate" /> */}
-      <ImageWithLoader item={item} />
+      <ImageWithLoader item={item} height={"142px"} width={"138px"} />
       <div className="flex flex-col justify-between w-full pt-1 pb-4">
         {/* name + rate */}
         <div className="flex flex-col gap-1.5">

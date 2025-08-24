@@ -9,7 +9,9 @@ function CartProduct({ item }) {
     <div className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20">
       {/* image */}
       {/* <img src={item.src} alt="Hot Chocolate" /> */}
-      <ImageWithLoader item={item} />
+
+      <ImageWithLoader item={item} width={"78px"} height={"117px"} />
+
       <div className="flex flex-col justify-between w-full pt-1 pb-4">
         {/* name + rate */}
         <div className="flex flex-col gap-1.5">

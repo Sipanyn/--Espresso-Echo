@@ -32,7 +32,7 @@ function HomePage() {
       ) : (
         <div className="flex flex-col p-2.5 w-full">
           {/* header */}
-          <div className="flex flex-row justify-between items-start sticky top-0  z-9 bg-white">
+          <div className="flex flex-row justify-between items-start sticky top-0  z-9 bg-white pt-2">
             <div className="flex flex-col gap-2">
               <div className="flex flex-row items-center gap-2 text-burntOrange font-bold">
                 <svg className="size-8">
@@ -43,7 +43,8 @@ function HomePage() {
 
               <p
                 className={`text-gray-400 font-extralight w-[261px] whitespace-nowrap overflow-hidden text-ellipsis ${
-                  scrollTop > 0 && "hidden"
+                  scrollTop > 0 &&
+                  "opacity-0 invisible transition-all duration-200"
                 }`}
               >
                 Select your preferred coffee type
