@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useProduct from "../hooks/useProduct";
 import HomeProduct from "../components/HomeProduct";
 import useScrollTop from "../hooks/useScrollTop";
-import { getAllProducts } from "../features/productsSlice";
+import { getAllProducts } from "../features/productSlice";
 import { EosIconsBubbleLoading } from "../components/Loader";
 
 function HomePage() {

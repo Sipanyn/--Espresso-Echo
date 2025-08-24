@@ -5,7 +5,7 @@ import LoginModal from "../components/LoginModal";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import CartProduct from "../components/CartProduct";
-import { calTotal } from "../features/productsSlice";
+import { calTotal } from "../features/productSlice";
 function CartPage() {
   const { scrollTop } = useScrollTop();
   let navigate = useNavigate();
