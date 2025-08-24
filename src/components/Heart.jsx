@@ -14,7 +14,7 @@ function Heart({ item }) {
       <Toaster />
       <svg
         onClick={() => {
-          if (userInfo?.length > 0) {
+          if (userInfo) {
             dispatch(toggleToFav(item));
           } else {
             notify();

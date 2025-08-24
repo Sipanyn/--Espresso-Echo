@@ -15,7 +15,7 @@ function AddToCart({ item }) {
       <Toaster />
       <div
         onClick={() => {
-          if (userInfo?.length > 0) {
+          if (userInfo) {
             dispatch(toggleToCart(item));
           } else {
             notify();
