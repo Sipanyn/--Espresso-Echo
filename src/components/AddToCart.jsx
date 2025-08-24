@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toggleToCart } from "../features/productsSlice";
+import { toggleToCart } from "../features/productSlice";
 
 function AddToCart({ item }) {
   const dispatch = useDispatch();

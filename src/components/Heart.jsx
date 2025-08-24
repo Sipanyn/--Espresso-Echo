@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { toggleToFav } from "../features/productsSlice";
+import { toggleToFav } from "../features/productSlice";
 
 function Heart({ item }) {
   const dispatch = useDispatch();

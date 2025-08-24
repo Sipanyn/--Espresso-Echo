@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { toggleToCart } from "../features/productsSlice";
+import { toggleToCart } from "../features/productSlice";
 import Counter from "./Counter";
 import ImageWithLoader from "./ImageWithLoader";
 

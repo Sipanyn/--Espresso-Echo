@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { calTotal, decrement, increment } from "../features/productsSlice";
+import { calTotal, decrement, increment } from "../features/productSlice";
 
 function Counter({ item }) {
   const dispatch = useDispatch();
