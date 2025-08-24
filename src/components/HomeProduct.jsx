@@ -1,10 +1,12 @@
 import AddToCart from "./AddToCart";
-
+import Heart from "../components/Heart";
+import ImageWithLoader from "../components/ImageWithLoader";
 function HomeProduct({ item }) {
   return (
-    <div className="flex flex-col rounded-md shadow-md p-3 pb-0 gap-2.5 w-[162px]  bg-stone-50/20 relative">
+    <div className="relative flex flex-col items-center rounded-md shadow-md p-3 pb-0 gap-2.5 w-[162px]  bg-stone-50/20 ">
       {/* image */}
-      <img className="h-[138px] w-[152px]" src={item.src} alt="Hot Chocolate" />
+      {/* <img className="h-[138px] w-[152px]" src={item.src} alt="Hot Chocolate" /> */}
+      <ImageWithLoader item={item} />
       <div className="flex flex-col justify-between w-full pt-1 pb-4">
         {/* name + rate */}
         <div className="flex flex-col gap-1.5">
@@ -22,7 +24,10 @@ function HomeProduct({ item }) {
         </div>
         {/* add */}
 
-        <AddToCart />
+        <AddToCart item={item} />
+      </div>
+      <div className="absolute right-3 top-3 z-2">
+        <Heart item={item} />
       </div>
     </div>
   );

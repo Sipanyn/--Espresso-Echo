@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { toggleToFav } from "../features/productsSlice";
 
-function Heart() {
-  const [filled, setFilled] = useState(true);
+function Heart({ item }) {
+  const dispatch = useDispatch();
   return (
     <svg
-      onClick={() => setFilled((pre) => !pre)}
+      onClick={() => dispatch(toggleToFav(item))}
       className={`size-8 cursor-pointer ${
-        filled ? "text-red-500" : " text-gray-200"
+        item.favorite ? "text-red-500" : " text-gray-200"
       }`}
     >
       <use href="/sprite.svg#favorite_icon" />

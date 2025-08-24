@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import loginReducer from "../features/loginSlice";
-import productsReducer from "../features/ProductsSlice";
+import productsReducer from "../features/productsSlice";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage
 import { combineReducers } from "redux";

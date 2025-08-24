@@ -1,7 +1,10 @@
-import Heart from "../components/Heart";
-import AddToCart from "../components/AddToCart";
+import { useDispatch } from "react-redux";
+import { toggleToCart } from "../features/productsSlice";
+import Counter from "./Counter";
 import ImageWithLoader from "./ImageWithLoader";
-function FavProduct({ item }) {
+
+function CartProduct({ item }) {
+  const dispatch = useDispatch();
   return (
     <div className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20">
       {/* image */}
@@ -10,23 +13,28 @@ function FavProduct({ item }) {
       <div className="flex flex-col justify-between w-full pt-1 pb-4">
         {/* name + rate */}
         <div className="flex flex-col gap-1.5">
-          <p className="font-medium flex flex-row justify-between items-center w-full sm:w-[176px] ">
+          <p className="font-medium flex flex-row items-center justify-between">
             {item.name}
-            <Heart item={item} />
+            <svg
+              onClick={() => dispatch(toggleToCart(item))}
+              className="size-5 cursor-pointer text-red-500"
+            >
+              <use href="/sprite.svg#close_icon" />
+            </svg>
           </p>
           <span className="flex flex-row gap-0.5">
             <span>⭐</span>
             <span className="text-gray-400 font-light">{item.rate}</span>
           </span>
         </div>
-        {/*  price */}
-        <div className="flex flex-row justify-between items-center gap-1.5  w-full">
+        {/* count + price */}
+        <div className="flex flex-row justify-between items-center gap-8 w-full">
           <p className="font-medium">${item.price}</p>
+          <Counter item={item} />
         </div>
-        <AddToCart item={item} />
       </div>
     </div>
   );
 }
 
-export default FavProduct;
+export default CartProduct;

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useProduct from "../hooks/useProduct";
 import HomeProduct from "../components/HomeProduct";
 import useScrollTop from "../hooks/useScrollTop";
-import { getAllProducts } from "../features/ProductsSlice";
+import { getAllProducts } from "../features/productsSlice";
 import { EosIconsBubbleLoading } from "../components/Loader";
 
 function HomePage() {
@@ -13,16 +13,18 @@ function HomePage() {
   const { scrollTop } = useScrollTop();
   const { data, isLoading } = useProduct();
   const allProducts = useSelector((state) => state.products.allProducts);
-  const dispatch = useDispatch(data);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isLoading) {
-      console.log("is loading");
-    } else {
-      dispatch(getAllProducts(data));
-      // console.log(data);
+    if (!allProducts.length) {
+      if (isLoading) {
+        console.log("is loading");
+      } else {
+        dispatch(getAllProducts(data));
+        // console.log(data);
+      }
     }
-  }, [data]);
+  }, [data, isLoading, allProducts.length, dispatch]);
   return (
     <>
       {loginModel ? (
@@ -76,9 +78,9 @@ function HomePage() {
           <div className="flex flex-row justify-center flex-wrap gap-2.5 mb-25 mt-5 p-2.5">
             {isLoading && <EosIconsBubbleLoading />}
             {!isLoading &&
-              data.map((item) => {
-                return <HomeProduct item={item} key={item.id} />;
-              })}
+              allProducts.map((item) => (
+                <HomeProduct item={item} key={item.id} />
+              ))}
           </div>
         </div>
       )}

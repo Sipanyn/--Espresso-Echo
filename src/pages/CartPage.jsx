@@ -2,14 +2,21 @@ import { useNavigate } from "react-router";
 import Counter from "../components/Counter";
 import useScrollTop from "../hooks/useScrollTop";
 import LoginModal from "../components/LoginModal";
-import { useSelector } from "react-redux";
-import { useState } from "react";
-import FavProduct from "../components/FavProduct";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import CartProduct from "../components/CartProduct";
+import { calTotal } from "../features/productsSlice";
 function CartPage() {
   const { scrollTop } = useScrollTop();
   let navigate = useNavigate();
   const userInfo = useSelector((state) => state.login.userInfo);
   const [loginModel, setLoginModel] = useState(false);
+  const allProducts = useSelector((state) => state.products.allProducts);
+  const totalPrice = useSelector((state) => state.products.totalPrice);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(calTotal());
+  });
   return (
     <>
       {loginModel ? (
@@ -33,7 +40,9 @@ function CartPage() {
             </div>
             {userInfo.length > 0 ? (
               <div className="flex flex-row gap-0.5">
-                <p className="font-bold">1</p>
+                <p className="font-bold">
+                  {allProducts.filter((item) => item.cart === true).length}
+                </p>
                 <p>item(s)</p>
               </div>
             ) : null}
@@ -41,9 +50,17 @@ function CartPage() {
           <>
             {userInfo.length > 0 ? (
               <div className="flex flex-row justify-center flex-wrap gap-2.5 mb-25 mt-16 p-2.5">
-                {Array.from({ length: 8 }, (_, i) => i + 1).map((item) => (
-                  <FavProduct item={item} />
-                ))}
+                {allProducts.filter((item) => item.cart === true).length > 0 ? (
+                  allProducts.map((item) => {
+                    if (item.cart) {
+                      return <CartProduct key={item.id} item={item} />;
+                    }
+                  })
+                ) : (
+                  <p className="bg-gray-300 rounded-md pt-2 pb-2 pl-3.5 pr-3.5 text-white flex flex-row items-center gap-1.5">
+                    No product in Cart 😞
+                  </p>
+                )}
                 {/* product */}
               </div>
             ) : (
@@ -65,7 +82,7 @@ function CartPage() {
           {userInfo.length > 0 && (
             <div className="flex flex-row justify-between items-center font-bold fixed z-9 bottom-[60px] sm:bottom-[68px] bg-white w-full pt-2 pb-2 pl-4 pr-4">
               <p>Total</p>
-              <p>$12</p>
+              <p>${totalPrice}</p>
             </div>
           )}
         </div>

@@ -3,12 +3,13 @@ import useScrollTop from "../hooks/useScrollTop";
 import LoginModal from "../components/LoginModal";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import Heart from "../components/Heart";
+import FavProduct from "../components/FavProduct";
 function FavoritePage() {
   const { scrollTop } = useScrollTop();
   let navigate = useNavigate();
   const userInfo = useSelector((state) => state.login.userInfo);
   const [loginModel, setLoginModel] = useState(false);
+  const allProducts = useSelector((state) => state.products.allProducts);
   return (
     <>
       {loginModel ? (
@@ -32,7 +33,10 @@ function FavoritePage() {
             </div>
             {userInfo.length > 0 ? (
               <div className="flex flex-row gap-0.5">
-                <p className="font-bold">1</p>
+                <p className="font-bold">
+                  {" "}
+                  {allProducts.filter((item) => item.favorite === true).length}
+                </p>
                 <p>item(s)</p>
               </div>
             ) : null}
@@ -40,30 +44,18 @@ function FavoritePage() {
           <>
             {userInfo.length > 0 ? (
               <div className="flex flex-row justify-center flex-wrap gap-2.5 mb-25 mt-16 p-2.5">
-                {Array.from({ length: 8 }, (_, i) => i + 1).map((item) => (
-                  <div
-                    key={item}
-                    className="flex flex-row rounded-md shadow-md p-3 gap-2.5 w-full sm:w-fit bg-stone-50/20"
-                  >
-                    {/* image */}
-                    <img src="/Hot%20Chocolate.png" alt="Hot Chocolate" />
-                    <div className="flex flex-col justify-between w-full pt-1 pb-4">
-                      {/* name + rate */}
-                      <div className="flex flex-col gap-1.5">
-                        <p className="font-medium">Hot Chocolate</p>
-                        <span className="flex flex-row gap-0.5">
-                          <span>⭐</span>
-                          <span className="text-gray-400 font-light">4.5</span>
-                        </span>
-                      </div>
-                      {/* count + price */}
-                      <div className="flex flex-row justify-between items-center gap-8 w-full">
-                        <p className="font-medium">$12</p>
-                        <Heart />
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                {allProducts.filter((item) => item.favorite === true).length >
+                0 ? (
+                  allProducts.map((item) => {
+                    if (item.favorite) {
+                      return <FavProduct key={item.id} item={item} />;
+                    }
+                  })
+                ) : (
+                  <p className="bg-gray-300 rounded-md pt-2 pb-2 pl-3.5 pr-3.5 text-white flex flex-row items-center gap-1.5">
+                    No product in Favorite 💔
+                  </p>
+                )}
                 {/* product */}
               </div>
             ) : (
