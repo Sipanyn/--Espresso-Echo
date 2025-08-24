@@ -13,13 +13,13 @@ function Heart({ item }) {
     <>
       <Toaster />
       <svg
-        onClick={() => {
-          if (userInfo) {
-            dispatch(toggleToFav(item));
-          } else {
-            notify();
-          }
-        }}
+        // onClick={() => {
+        //   if (userInfo) {
+        //     dispatch(toggleToFav(item));
+        //   } else {
+        //     notify();
+        //   }
+        // }}
         className={`size-8 cursor-pointer ${
           item.favorite ? "text-red-500" : " text-gray-200"
         }`}
