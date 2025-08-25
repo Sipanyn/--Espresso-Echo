@@ -35,7 +35,7 @@ function FavoritePage() {
               <div className="flex flex-row gap-0.5">
                 <p className="font-bold">
                   {" "}
-                  {allProducts.filter((item) => item.favorite === true).length}
+                  {allProducts?.filter((item) => item.favorite === true).length}
                 </p>
                 <p>item(s)</p>
               </div>
@@ -44,9 +44,9 @@ function FavoritePage() {
           <>
             {userInfo.length > 0 ? (
               <div className="flex flex-row justify-center flex-wrap gap-2.5 mb-25 mt-16 p-2.5">
-                {allProducts.filter((item) => item.favorite === true).length >
+                {allProducts?.filter((item) => item.favorite === true).length >
                 0 ? (
-                  allProducts.map((item) => {
+                  allProducts?.map((item) => {
                     if (item.favorite) {
                       return <FavProduct key={item.id} item={item} />;
                     }

@@ -41,7 +41,7 @@ function CartPage() {
             {userInfo.length > 0 ? (
               <div className="flex flex-row gap-0.5">
                 <p className="font-bold">
-                  {allProducts.filter((item) => item.cart === true).length}
+                  {allProducts?.filter((item) => item.cart === true).length}
                 </p>
                 <p>item(s)</p>
               </div>
@@ -50,8 +50,9 @@ function CartPage() {
           <>
             {userInfo.length > 0 ? (
               <div className="flex flex-row justify-center flex-wrap gap-2.5 mb-25 mt-16 p-2.5">
-                {allProducts.filter((item) => item.cart === true).length > 0 ? (
-                  allProducts.map((item) => {
+                {allProducts?.filter((item) => item.cart === true).length >
+                0 ? (
+                  allProducts?.map((item) => {
                     if (item.cart) {
                       return <CartProduct key={item.id} item={item} />;
                     }
