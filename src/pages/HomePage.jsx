@@ -20,7 +20,7 @@ function HomePage() {
       dispatch(getAllProducts(data));
       console.log(data);
     }
-  });
+  }, [data, isLoading, dispatch]);
 
   return (
     <>
