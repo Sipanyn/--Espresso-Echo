@@ -18,6 +18,7 @@ function HomePage() {
   useEffect(() => {
     if (!isLoading && data && data.length > 0) {
       dispatch(getAllProducts(data));
+      console.log(data);
     }
   }, [data, isLoading, dispatch]);
 
@@ -75,8 +76,7 @@ function HomePage() {
           <div className="flex flex-row justify-center flex-wrap gap-2.5 mb-25 mt-5 p-2.5">
             {isLoading && <EosIconsBubbleLoading />}
             {!isLoading &&
-              allProducts?.length > 0 &&
-              allProducts.map((item) => (
+              allProducts?.map((item) => (
                 <HomeProduct item={item} key={item.id} />
               ))}
           </div>
