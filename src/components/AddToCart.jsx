@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleToCart } from "../features/productSlice";
 import toast, { Toaster } from "react-hot-toast";
@@ -15,7 +14,7 @@ function AddToCart({ item }) {
       <Toaster />
       <div
         onClick={() => {
-          if (userInfo) {
+          if (userInfo.length > 0) {
             dispatch(toggleToCart(item));
           } else {
             notify();
