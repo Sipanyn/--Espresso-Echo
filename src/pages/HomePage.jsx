@@ -19,12 +19,13 @@ function HomePage() {
     if (!allProducts.length) {
       if (isLoading) {
         console.log("is loading");
-      } else {
+      }
+      if (!isLoading) {
         dispatch(getAllProducts(data));
         // console.log(data);
       }
     }
-  }, [data, isLoading, allProducts?.length, dispatch]);
+  }, [data, isLoading, allProducts.length, dispatch]);
   return (
     <>
       {loginModel ? (
