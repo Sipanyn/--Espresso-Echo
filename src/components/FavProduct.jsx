@@ -9,7 +9,7 @@ function FavProduct({ item }) {
       <ImageWithLoader item={item} width={"78px"} height={"117px"} />
       <div className="flex flex-col justify-between w-full pt-1 pb-4">
         {/* name + rate */}
-        <div className="flex flex-col gap-1.5">
+        <div className="flex flex-col gap-1.5 mb-1.5">
           <div className="font-medium flex flex-row justify-between items-center w-full sm:w-[176px] ">
             {item.name}
             <Heart item={item} />
