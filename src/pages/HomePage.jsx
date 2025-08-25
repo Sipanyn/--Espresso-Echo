@@ -24,7 +24,7 @@ function HomePage() {
         // console.log(data);
       }
     }
-  }, [data, isLoading, allProducts.length, dispatch]);
+  }, [data, isLoading, allProducts?.length, dispatch]);
   return (
     <>
       {loginModel ? (
