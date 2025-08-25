@@ -6,6 +6,7 @@ import HomeProduct from "../components/HomeProduct";
 import useScrollTop from "../hooks/useScrollTop";
 import { getAllProducts } from "../features/productSlice";
 import { EosIconsBubbleLoading } from "../components/Loader";
+import Search from "../components/Search";
 
 function HomePage() {
   const [loginModel, setLoginModel] = useState(false);
@@ -14,6 +15,7 @@ function HomePage() {
   const { data, isLoading } = useProduct();
   const allProducts = useSelector((state) => state.products.allProducts);
   const dispatch = useDispatch();
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     if (!isLoading && data && data.length > 0 && allProducts.length === 0) {
@@ -65,20 +67,27 @@ function HomePage() {
             )}
           </div>
           {/* search bar */}
-          <div className="bg-gray-50 shadow-sm rounded-md w-[90%] sm:w-[410px] flex flex-row gap-1 placeholder:text-gray-400 mt-3 m-auto pt-3 pb-3 pl-1.5 pr-1.5 sticky top-12 z-9">
-            <svg className="size-6 text-gray-400">
-              <use href="/sprite.svg#search_icon" />
-            </svg>
-            <input type="text" placeholder="Search by coffee name" />
-          </div>
+          <Search setSearchValue={setSearchValue} />
           {/* products container */}
           {/* {isLoading ? console.log("is loading") : console.log(data)} */}
           <div className="flex flex-row justify-center flex-wrap gap-2.5 mb-25 mt-5 p-2.5">
             {isLoading && <EosIconsBubbleLoading />}
-            {!isLoading &&
+            {searchValue.length === 0 ? (
+              !isLoading &&
               allProducts?.map((item) => (
                 <HomeProduct item={item} key={item.id} />
-              ))}
+              ))
+            ) : allProducts?.filter((item) =>
+                item.name.toLowerCase().includes(searchValue.toLowerCase())
+              ).length > 0 ? (
+              allProducts
+                .filter((item) =>
+                  item.name.toLowerCase().includes(searchValue.toLowerCase())
+                )
+                .map((item) => <HomeProduct item={item} key={item.id} />)
+            ) : (
+              <p className="text-gray-400">No matching products found</p>
+            )}
           </div>
         </div>
       )}
