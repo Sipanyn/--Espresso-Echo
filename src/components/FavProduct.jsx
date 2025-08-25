@@ -14,15 +14,17 @@ function FavProduct({ item }) {
             {item.name}
             <Heart item={item} />
           </div>
-          <span className="flex flex-row gap-0.5">
-            <span>⭐</span>
-            <span className="text-gray-400 font-light">{item.rate}</span>
-          </span>
+          <div className="flex flex-row justify-between items-center">
+            <span className="flex flex-row gap-0.5">
+              <span>⭐</span>
+              <span className="text-gray-400 font-light">{item.rate}</span>
+            </span>
+            <div className="flex flex-row justify-between items-center gap-1.5  w-full">
+              <p className="font-medium">${item.price}</p>
+            </div>
+          </div>
         </div>
-        {/*  price */}
-        <div className="flex flex-row justify-between items-center gap-1.5  w-full">
-          <p className="font-medium">${item.price}</p>
-        </div>
+
         <AddToCart item={item} />
       </div>
     </div>
