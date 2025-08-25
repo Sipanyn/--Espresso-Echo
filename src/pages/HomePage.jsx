@@ -16,16 +16,14 @@ function HomePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!allProducts.length) {
-      if (isLoading) {
-        console.log("is loading");
-      }
-      if (!isLoading) {
-        dispatch(getAllProducts(data));
-        // console.log(data);
-      }
+    if (isLoading) {
+      console.log("is loading");
     }
-  }, [data, isLoading, allProducts?.length, dispatch]);
+    if (!isLoading) {
+      dispatch(getAllProducts(data));
+      // console.log(data);
+    }
+  }, [data, isLoading, dispatch]);
   return (
     <>
       {loginModel ? (
