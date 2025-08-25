@@ -16,11 +16,13 @@ function HomePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!isLoading && data && data.length > 0) {
-      dispatch(getAllProducts(data));
-      console.log(data);
+    if (allProducts.length < 0) {
+      if (!isLoading && data && data.length > 0) {
+        dispatch(getAllProducts(data));
+        console.log(data);
+      }
     }
-  }, [data, isLoading, dispatch]);
+  }, [data, isLoading, dispatch, allProducts.length]);
 
   return (
     <>

@@ -15,7 +15,7 @@ function CartProduct({ item }) {
       <div className="flex flex-col justify-between w-full pt-1 pb-4">
         {/* name + rate */}
         <div className="flex flex-col gap-1.5">
-          <p className="font-medium flex flex-row items-center justify-between">
+          <div className="font-medium flex flex-row items-center justify-between">
             {item.name}
             <svg
               onClick={() => dispatch(toggleToCart(item))}
@@ -23,7 +23,7 @@ function CartProduct({ item }) {
             >
               <use href="/sprite.svg#close_icon" />
             </svg>
-          </p>
+          </div>
           <span className="flex flex-row gap-0.5">
             <span>⭐</span>
             <span className="text-gray-400 font-light">{item.rate}</span>
