@@ -14,13 +14,13 @@ function AddToCart({ item }) {
     <>
       <Toaster />
       <div
-        // onClick={() => {
-        //   if (userInfo) {
-        //     dispatch(toggleToCart(item));
-        //   } else {
-        //     notify();
-        //   }
-        // }}
+        onClick={() => {
+          if (userInfo) {
+            dispatch(toggleToCart(item));
+          } else {
+            notify();
+          }
+        }}
         className={`flex flex-row justify-center border-1 gap-1 cursor-pointer  rounded-md mt-2 pt-1.5 pb-1.5 text-white
         ${item.cart ? "bg-red-500  " : " bg-green-400"}
         `}
