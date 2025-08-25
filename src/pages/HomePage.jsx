@@ -16,14 +16,11 @@ function HomePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (isLoading) {
-      console.log("is loading");
-    }
-    if (!isLoading) {
+    if (!isLoading && data && data.length > 0) {
       dispatch(getAllProducts(data));
-      // console.log(data);
     }
   }, [data, isLoading, dispatch]);
+
   return (
     <>
       {loginModel ? (
