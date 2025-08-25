@@ -14,7 +14,7 @@ function FavProduct({ item }) {
             {item.name}
             <Heart item={item} />
           </div>
-          <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row justify-between items-center w-full">
             <span className="flex flex-row gap-0.5">
               <span>⭐</span>
               <span className="text-gray-400 font-light">{item.rate}</span>
