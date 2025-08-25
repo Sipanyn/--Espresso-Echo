@@ -47,7 +47,7 @@ export const productSlice = createSlice({
     },
     calTotal: (state) => {
       state.totalPrice = 0;
-      state.allProducts.map((item) => {
+      state.allProducts?.map((item) => {
         if (item.cart) {
           state.totalPrice = state.totalPrice + item.count * item.price;
         }
